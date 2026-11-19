@@ -11,7 +11,7 @@ description: Crea una página web de una sola pieza (un archivo HTML que se abre
 El resultado es **un solo archivo `.html`** que funciona sin internet, sin instalar
 nada y en el celular. Se abre con doble clic y se puede enviar por correo o publicar.
 
-Parte de `plantilla.html` (en esta misma carpeta). Ya cumple todas las reglas de
+Parte de `plantilla.html` (en la carpeta de esta misma habilidad). Ya cumple todas las reglas de
 abajo: **cambia el contenido, no rompas el sistema**.
 
 ## 1. Pregunta antes de escribir (máximo tres preguntas)

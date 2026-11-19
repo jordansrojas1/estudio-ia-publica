@@ -1,0 +1,11 @@
+{
+  "name": "diseno-publico",
+  "displayName": "Diseño público (Uniandes)",
+  "description": "Kit de diseño con IA para la gestión pública: crear piezas ciudadanas accesibles, auditar contraste y movimiento, y aprender de referencias.",
+  "version": "1.1.0",
+  "author": {
+    "name": "Jordan Rojas"
+  },
+  "license": "MIT AND CC-BY-4.0",
+  "keywords": ["diseño", "accesibilidad", "WCAG", "gestión pública", "Uniandes"]
+}

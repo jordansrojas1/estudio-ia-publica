@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "Si usas este kit, cítalo así."
 title: "estudio-ia-publica: kit de diseño con IA para la gestión pública"
-version: "1.0.0"
+version: "1.1.0"
 date-released: "2026-11-19"
 license: ["MIT", "CC-BY-4.0"]
 repository-code: "https://github.com/jordansrojas1/estudio-ia-publica"

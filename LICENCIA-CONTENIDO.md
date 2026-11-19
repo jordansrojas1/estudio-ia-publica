@@ -27,5 +27,6 @@ Ejemplo de crédito:
 - Los sitios y proyectos analizados en `references/` pertenecen a sus autores (ver
   `CREDITOS.md`). Esta licencia cubre el análisis, no esos sitios.
 - Los nombres y marcas de terceros (Universidad de los Andes, Anthropic, Claude,
+  OpenAI, Codex, Cursor,
   MinTIC, W3C y otros) pertenecen a sus titulares.
 - El código está bajo la licencia MIT (ver `LICENSE`).

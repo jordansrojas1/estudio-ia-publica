@@ -23,7 +23,8 @@ Quien te pide esto casi siempre es un servidor público, no un programador. Por 
 
 ## Las dos herramientas
 
-Hay dos scripts en `scripts/`, en Python y sin nada que instalar:
+Hay dos scripts en la carpeta `scripts/` de esta misma habilidad, en Python y sin
+nada que instalar (funcionan igual en Claude, Codex o Cursor):
 
 ```
 python scripts/contraste.py <archivos o carpeta> --fondo "#FFFFFF"

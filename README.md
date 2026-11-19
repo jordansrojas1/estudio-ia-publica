@@ -1,6 +1,6 @@
 # estudio-ia-publica
 
-**Kit de diseño con IA para la gestión pública.** Tres habilidades para Claude que
+**Kit de diseño con IA para la gestión pública.** Tres habilidades para Claude, Codex y Cursor que
 te ayudan a crear páginas claras, accesibles y con buen movimiento para la
 ciudadanía, y a revisar si las que ya existen se leen bien.
 
@@ -75,7 +75,22 @@ analizar las tuyas, con su crédito.
 /plugin install diseno-publico@estudio-ia-publica
 ```
 
-**¿Usas ChatGPT, Gemini o Copilot?** Copia un prompt de
+**¿Usas Codex o Cursor?** Los dos leen la carpeta `~/.agents/skills`. Pídele al agente
+que instale el kit (el prompt está en la guía) o pega un solo comando:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/jordansrojas1/estudio-ia-publica/main/instalar.sh | bash
+```
+
+En Windows (PowerShell):
+
+```powershell
+irm https://raw.githubusercontent.com/jordansrojas1/estudio-ia-publica/main/instalar.ps1 | iex
+```
+
+Luego, en Codex escribe `$pieza-ciudadana`; en Cursor, `/pieza-ciudadana` en el chat de Agente.
+
+**¿Usas ChatGPT, Gemini o Copilot en el chat?** Copia un prompt de
 [`prompts/SIN-INSTALAR.md`](prompts/SIN-INSTALAR.md).
 
 ---
@@ -91,11 +106,12 @@ analizar las tuyas, con su crédito.
 ```
 estudio-ia-publica/
 ├── GUIA-INSTALACION.md       ← empieza aquí
+├── instalar.sh / .ps1        ← instalador para Codex y Cursor
 ├── CREDITOS.md               ← quién hizo qué
 ├── descargas/                ← los ZIP para subir a claude.ai
 ├── prompts/SIN-INSTALAR.md   ← para ChatGPT, Gemini o Copilot
 ├── ejemplos/                 ← la página de ejemplo y un sitio para practicar
-└── plugins/diseno-publico/   ← las habilidades (para Claude Code)
+└── plugins/diseno-publico/   ← las habilidades (Claude Code, Codex, Cursor)
 ```
 
 ---
