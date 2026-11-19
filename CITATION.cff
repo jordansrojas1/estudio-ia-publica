@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "Si usas este kit, cítalo así."
+title: "estudio-ia-publica: kit de diseño con IA para la gestión pública"
+version: "1.0.0"
+date-released: "2026-11-19"
+license: ["MIT", "CC-BY-4.0"]
+repository-code: "https://github.com/jordansrojas1/estudio-ia-publica"
+url: "https://aprendeia.jordanrojas.com/modulos/iagp-2026/kit-diseno"
+authors:
+  - family-names: "Rojas"
+    given-names: "Jordan"
+keywords: ["diseño", "accesibilidad", "WCAG", "gestión pública", "inteligencia artificial", "Claude"]

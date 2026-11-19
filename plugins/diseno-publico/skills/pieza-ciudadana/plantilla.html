@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Derecho de petición · Alcaldía de Villa Esperanza (ejemplo ficticio)</title>
+<meta name="description" content="Cómo presentar un derecho de petición, paso a paso y en lenguaje claro.">
+<!--
+  Pieza ciudadana · plantilla del kit «estudio-ia-publica»
+  Método de diseño: Jordan Rojas · Curso IA Generativa para la Gestión Pública (Uniandes)
+  Licencia: MIT. Puedes usarla y modificarla manteniendo este aviso. Ver CREDITOS.md.
+
+  Reglas que esta plantilla ya cumple (no las rompas al cambiar el contenido):
+  1. Contraste WCAG 2.1 AA en todo el texto (4,5:1 o más).
+  2. Un solo color de acento, solo para la acción principal y lo que hay que recordar.
+  3. Dos velocidades de movimiento (160 ms y 500 ms) y una sola curva.
+  4. Todo el movimiento se apaga con prefers-reduced-motion.
+  5. Funciona sin internet, sin librerías y con teclado.
+-->
+<style>
+  :root {
+    --fondo: #FAFAF7;
+    --superficie: #FFFFFF;
+    --tinta: #111214;
+    --tinta-2: #3F4147;      /* 9,8:1 sobre --fondo   */
+    --tinta-3: #5F626B;      /* 5,8:1 sobre --fondo   */
+    --borde: #E3E3DE;
+    --acento: #1D4ED8;       /* 6,4:1 sobre --fondo: el ÚNICO color de acento */
+    --acento-suave: #EEF2FF;
+    --exito: #166534;
+
+    --rapido: 160ms;         /* lo que responde al clic */
+    --escena: 500ms;         /* lo que entra en escena  */
+    --curva: cubic-bezier(.22, 1, .36, 1);
+
+    --radio: 22px;
+    --ancho: 1040px;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--fondo);
+    color: var(--tinta);
+    font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--acento); }
+  .envoltura { max-width: var(--ancho); margin: 0 auto; padding: 0 20px; }
+
+  .saltar { position: absolute; left: -999px; top: 8px; background: var(--tinta); color: #fff; padding: 8px 14px; border-radius: 10px; z-index: 10; }
+  .saltar:focus { left: 8px; }
+  :focus-visible { outline: 3px solid var(--acento); outline-offset: 3px; border-radius: 6px; }
+
+  /* Encabezado */
+  .barra { position: sticky; top: 0; z-index: 5; background: rgb(250 250 247 / .86); border-bottom: 1px solid var(--borde); }
+  @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .barra { backdrop-filter: saturate(160%) blur(14px); -webkit-backdrop-filter: saturate(160%) blur(14px); }
+  }
+  .barra .envoltura { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 12px; }
+  .marca { display: flex; align-items: center; gap: 10px; font-weight: 650; font-size: 15px; color: var(--tinta); text-decoration: none; }
+  .escudo { width: 32px; height: 32px; border-radius: 10px; background: var(--tinta); color: #fff; display: grid; place-items: center; font-size: 12px; font-weight: 700; }
+  .ficticio { font-size: 13px; color: var(--tinta-3); border: 1px dashed var(--borde); padding: 4px 10px; border-radius: 999px; white-space: nowrap; }
+
+  /* Portada */
+  .portada { padding: 72px 0 40px; }
+  .antetitulo { font-size: 14px; font-weight: 600; color: var(--tinta-3); letter-spacing: .02em; margin: 0 0 14px; }
+  h1 { font-size: clamp(36px, 6vw, 60px); line-height: 1.06; letter-spacing: -0.025em; margin: 0; max-width: 16ch; font-weight: 700; }
+  h1 .clave { color: var(--acento); }
+  .entrada { font-size: clamp(18px, 2.2vw, 21px); color: var(--tinta-2); max-width: 54ch; margin: 22px 0 32px; }
+  .botones { display: flex; flex-wrap: wrap; gap: 10px; }
+  .boton {
+    display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 22px;
+    border-radius: 999px; font-weight: 600; font-size: 16px; text-decoration: none;
+    transition: transform var(--rapido) var(--curva), background-color var(--rapido) var(--curva), box-shadow var(--rapido) var(--curva);
+  }
+  .boton:hover { transform: translateY(-1px); }
+  .boton:active { transform: translateY(0) scale(.98); }
+  .boton.principal { background: var(--acento); color: #fff; box-shadow: 0 6px 20px -8px rgb(29 78 216 / .55); }
+  .boton.secundario { background: var(--superficie); color: var(--tinta); border: 1px solid var(--borde); }
+
+  /* Cifras */
+  .cifras { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 48px 0 0; }
+  .cifra { background: var(--superficie); border: 1px solid var(--borde); border-radius: var(--radio); padding: 22px; }
+  .cifra b { display: block; font-size: 44px; line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+  .cifra span { display: block; margin-top: 8px; color: var(--tinta-2); font-size: 15px; line-height: 1.4; }
+
+  section { padding: 56px 0; }
+  h2 { font-size: clamp(26px, 3.4vw, 36px); line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 10px; }
+  .bajada { color: var(--tinta-2); margin: 0 0 32px; max-width: 60ch; }
+
+  /* Pasos */
+  .pasos { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; counter-reset: paso; }
+  .paso { position: relative; background: var(--superficie); border: 1px solid var(--borde); border-radius: var(--radio); padding: 24px 24px 24px 84px; counter-increment: paso; }
+  .paso::before {
+    content: counter(paso); position: absolute; left: 24px; top: 22px; width: 40px; height: 40px; border-radius: 50%;
+    display: grid; place-items: center; background: var(--tinta); color: #fff; font-weight: 700;
+  }
+  .paso h3 { margin: 0 0 4px; font-size: 19px; }
+  .paso p { margin: 0; color: var(--tinta-2); }
+
+  /* Lista de chequeo */
+  .chequeo { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 0; margin: 0; list-style: none; }
+  .chequeo label { display: flex; gap: 12px; align-items: flex-start; background: var(--superficie); border: 1px solid var(--borde); border-radius: 16px; padding: 16px 18px; cursor: pointer; transition: border-color var(--rapido) var(--curva), background-color var(--rapido) var(--curva); }
+  .chequeo input { width: 22px; height: 22px; margin: 2px 0 0; accent-color: var(--exito); flex-shrink: 0; }
+  .chequeo label:has(input:checked) { border-color: var(--exito); background: #F0FDF4; }
+  .progreso { margin-top: 14px; font-size: 15px; color: var(--tinta-2); }
+  .barra-progreso { height: 8px; border-radius: 99px; background: var(--borde); overflow: hidden; margin-top: 8px; }
+  .barra-progreso i { display: block; height: 100%; width: 0; background: var(--exito); transition: width var(--escena) var(--curva); }
+
+  /* Preguntas */
+  details { background: var(--superficie); border: 1px solid var(--borde); border-radius: 16px; padding: 0 20px; margin-bottom: 10px; }
+  summary { cursor: pointer; font-weight: 600; padding: 18px 0; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; font-size: 22px; line-height: 1; color: var(--tinta-3); transition: transform var(--rapido) var(--curva); }
+  details[open] summary::after { transform: rotate(45deg); }
+  details p { margin: 0 0 18px; color: var(--tinta-2); }
+
+  .aviso { display: flex; gap: 14px; background: var(--acento-suave); border-radius: var(--radio); padding: 22px; color: #1E3A8A; }
+
+  footer { border-top: 1px solid var(--borde); padding: 32px 0 48px; color: var(--tinta-3); font-size: 14px; }
+  footer p { margin: 4px 0; }
+
+  /* Entrada en escena: solo si hay JavaScript y la persona no pidió menos movimiento */
+  .js .aparece { opacity: 0; transform: translateY(14px); transition: opacity var(--escena) var(--curva), transform var(--escena) var(--curva); }
+  .js .aparece.visible { opacity: 1; transform: none; }
+
+  @media (max-width: 720px) {
+    .cifras, .chequeo { grid-template-columns: 1fr; }
+    .portada { padding-top: 48px; }
+    .ficticio { display: none; }
+    .paso { padding-left: 76px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * {
+      animation: none !important;
+      transition-property: color, background-color, border-color, opacity !important;
+      transition-duration: var(--rapido) !important;
+    }
+    .js .aparece { opacity: 1; transform: none; }
+  }
+  @media (prefers-reduced-transparency: reduce) {
+    .barra { background: var(--fondo); backdrop-filter: none; -webkit-backdrop-filter: none; }
+  }
+</style>
+</head>
+<body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+
+<header class="barra">
+  <div class="envoltura">
+    <a class="marca" href="#"><span class="escudo" aria-hidden="true">VE</span> Alcaldía de Villa Esperanza</a>
+    <span class="ficticio">Ejemplo ficticio con fines educativos</span>
+  </div>
+</header>
+
+<main id="contenido">
+  <div class="envoltura">
+    <section class="portada">
+      <p class="antetitulo aparece">Trámites · Atención a la ciudadanía</p>
+      <h1 class="aparece">Pide lo que necesitas a la Alcaldía. <span class="clave">Tenemos que responderte.</span></h1>
+      <p class="entrada aparece">El derecho de petición te permite pedir información, documentos o una solución a la Alcaldía. Es gratis, no necesitas abogado y puedes hacerlo por escrito o de forma verbal.</p>
+      <div class="botones aparece">
+        <a class="boton principal" href="#pasos">Ver los 4 pasos <span aria-hidden="true">→</span></a>
+        <a class="boton secundario" href="#preguntas">Preguntas frecuentes</a>
+      </div>
+
+      <div class="cifras" role="list" aria-label="Plazos para responder (Ley 1755 de 2015)">
+        <div class="cifra aparece" role="listitem"><b data-cuenta="15">15</b><span>días hábiles para responder una petición general</span></div>
+        <div class="cifra aparece" role="listitem"><b data-cuenta="10">10</b><span>días hábiles si pides documentos o información</span></div>
+        <div class="cifra aparece" role="listitem"><b data-cuenta="30">30</b><span>días hábiles si es una consulta sobre un tema a cargo de la Alcaldía</span></div>
+      </div>
+    </section>
+
+    <section id="pasos" aria-labelledby="t-pasos">
+      <h2 id="t-pasos" class="aparece">En 4 pasos</h2>
+      <p class="bajada aparece">Escribe como hablas. No hace falta lenguaje jurídico.</p>
+      <ol class="pasos">
+        <li class="paso aparece"><h3>Di quién eres</h3><p>Tu nombre, tu documento y cómo quieres que te respondamos: correo o dirección.</p></li>
+        <li class="paso aparece"><h3>Cuenta qué pides</h3><p>En una o dos frases: "Solicito copia del permiso de construcción de la calle 8 # 4-20".</p></li>
+        <li class="paso aparece"><h3>Explica por qué</h3><p>Los hechos que tengas, en orden. Si tienes documentos, adjúntalos.</p></li>
+        <li class="paso aparece"><h3>Envíala y guarda tu número de radicado</h3><p>Por la ventanilla, por correo o por el formulario web. Con ese número haces seguimiento.</p></li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="t-chequeo">
+      <h2 id="t-chequeo" class="aparece">Antes de enviar, revisa</h2>
+      <p class="bajada aparece">Marca lo que ya tienes. Nada de esto se envía a ningún lado: se queda en tu pantalla.</p>
+      <ul class="chequeo aparece">
+        <li><label><input type="checkbox"> Mi nombre y documento de identidad</label></li>
+        <li><label><input type="checkbox"> Un correo o dirección para la respuesta</label></li>
+        <li><label><input type="checkbox"> Lo que pido, en una frase clara</label></li>
+        <li><label><input type="checkbox"> Los hechos y, si los tengo, los documentos</label></li>
+      </ul>
+      <div class="progreso aparece" aria-live="polite"><span id="progreso-texto">0 de 4 listos</span>
+        <div class="barra-progreso" aria-hidden="true"><i id="progreso-barra"></i></div>
+      </div>
+    </section>
+
+    <section id="preguntas" aria-labelledby="t-preguntas">
+      <h2 id="t-preguntas" class="aparece">Preguntas frecuentes</h2>
+      <div class="aparece">
+        <details><summary>¿Cuánto cuesta?</summary><p>Nada. Presentar un derecho de petición es gratis. Solo podrían cobrarte el costo de las copias si pides muchas.</p></details>
+        <details><summary>¿Y si no me responden a tiempo?</summary><p>Puedes insistir citando tu número de radicado, acudir a la Personería o, si se afecta un derecho fundamental, presentar una acción de tutela.</p></details>
+        <details><summary>¿Puedo hacerlo de forma verbal?</summary><p>Sí. En la ventanilla de atención deben recibirla y dejar constancia de lo que pediste.</p></details>
+      </div>
+    </section>
+
+    <section>
+      <div class="aviso aparece" role="note">
+        <span aria-hidden="true">ℹ️</span>
+        <p style="margin:0">Esta página es un <strong>ejemplo ficticio</strong>: Villa Esperanza no existe. Los plazos corresponden al artículo 14 de la Ley 1755 de 2015; antes de publicar algo así en una entidad real, verifica la norma vigente y los canales de tu entidad.</p>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="envoltura">
+    <p>Creado con la habilidad <strong>pieza-ciudadana</strong> del kit <a href="https://github.com/jordansrojas1/estudio-ia-publica">estudio-ia-publica</a>.</p>
+    <p>Método de diseño: Jordan Rojas · Curso IA Generativa para la Gestión Pública, Universidad de los Andes.</p>
+  </div>
+</footer>
+
+<script>
+  // Entrada en escena y cifras que cuentan. Si la persona pidió menos movimiento, todo aparece quieto.
+  (function () {
+    var quieto = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!quieto && "IntersectionObserver" in window) {
+      document.documentElement.classList.add("js");
+      var obs = new IntersectionObserver(function (entradas) {
+        entradas.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          e.target.classList.add("visible");
+          var n = e.target.querySelector("[data-cuenta]");
+          if (n) cuenta(n);
+          obs.unobserve(e.target);
+        });
+      }, { rootMargin: "0px 0px -8% 0px" });
+      var items = document.querySelectorAll(".aparece");
+      items.forEach(function (el, i) {
+        el.style.transitionDelay = Math.min((i % 4) * 70, 210) + "ms";
+        obs.observe(el);
+      });
+    }
+    function cuenta(el) {
+      var fin = +el.dataset.cuenta, t0 = null, dur = 900;
+      function paso(t) {
+        if (!t0) t0 = t;
+        var p = Math.min((t - t0) / dur, 1), suave = 1 - Math.pow(1 - p, 5);
+        el.textContent = Math.round(fin * suave);
+        if (p < 1) requestAnimationFrame(paso);
+      }
+      requestAnimationFrame(paso);
+    }
+    // Lista de chequeo
+    var cajas = document.querySelectorAll(".chequeo input");
+    function actualiza() {
+      var listos = Array.prototype.filter.call(cajas, function (c) { return c.checked; }).length;
+      document.getElementById("progreso-texto").textContent = listos === cajas.length ? "¡Todo listo! Ya puedes enviarla." : listos + " de " + cajas.length + " listos";
+      document.getElementById("progreso-barra").style.width = (listos / cajas.length * 100) + "%";
+    }
+    cajas.forEach(function (c) { c.addEventListener("change", actualiza); });
+  })();
+</script>
+</body>
+</html>

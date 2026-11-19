@@ -1,0 +1,23 @@
+/* Hoja de estilos de un portal ficticio, con los problemas típicos
+   de un sitio que creció sin sistema. Sirve para practicar auditar-diseno. */
+:root {
+  --fondo: #FFFFFF;
+  --texto: #222222;
+  --texto-ayuda: #A0A0A0;      /* el gris de los requisitos */
+  --enlace: #4A90E2;
+  --boton: #F5A623;
+  --nota-pie: #B8B8B8;
+  --exito: #7ED321;
+}
+body { background: var(--fondo); color: var(--texto); }
+.requisitos { color: var(--texto-ayuda); }
+a { color: var(--enlace); transition: all .3s ease; }
+.boton { background: var(--boton); color: #FFFFFF; transition: all 250ms ease-in-out; }
+.boton:hover { transition: transform .2s linear; }
+.menu { transition: opacity 400ms cubic-bezier(.4, 0, .2, 1); }
+.banner { animation: deslizar 1.2s ease-out; }
+.tarjeta { transition: box-shadow 350ms ease; }
+.modal { transition: opacity .15s ease-in; }
+.nota { color: var(--nota-pie); }
+.mensaje-ok { color: var(--exito); }
+@keyframes deslizar { from { transform: translateX(-100%); } to { transform: none; } }

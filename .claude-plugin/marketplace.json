@@ -1,0 +1,14 @@
+{
+  "name": "estudio-ia-publica",
+  "description": "Kit de diseño con IA para servidores públicos: revisar si una página se lee y se mueve bien, aprender de buenas referencias y crear piezas ciudadanas accesibles. Versión light del estudio de diseño de Jordan Rojas para el curso IA Generativa para la Gestión Pública (Uniandes).",
+  "owner": {
+    "name": "Jordan Rojas"
+  },
+  "plugins": [
+    {
+      "name": "diseno-publico",
+      "source": "./plugins/diseno-publico",
+      "description": "Tres habilidades: auditar-diseno (contraste y movimiento), referencias-visuales (aprender de sitios bien hechos) y pieza-ciudadana (crear una página accesible y animada para explicar un trámite o una política)."
+    }
+  ]
+}
